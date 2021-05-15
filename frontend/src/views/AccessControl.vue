@@ -4,7 +4,7 @@
       <b-col class="center">
         <b-img :src="require('../assets/images/MUILab-logo.jpg')" height="250" width="250" />
         <h3>MUILab 實聯制門禁登記</h3>
-        <h3>當前人數：{{ count }}</h3>
+        <h3 :class="{ 'text-danger': count > 5, 'text-success': count <= 5 }">當前人數：{{ count }}</h3>
       </b-col>
     </b-row>
     <b-row class="fill-form">
@@ -102,7 +102,7 @@ export default {
             okVariant: 'success',
             okTitle: '確定',
             headerClass: 'p-2 border-bottom-0',
-            footerClass: 'p-2 border-top-0',
+            footerClass: 'p-2 border-top-0 msgbox-footer',
             centered: true
           })
           this.name = ''
@@ -112,6 +112,15 @@ export default {
             console.log(data.data)
             this.$store.commit('SET_COUNT', data.data)
           }
+        } else {
+          this.$bvModal.msgBoxOk(data.message, {
+            title: '錯誤',
+            okVariant: 'danger',
+            okTitle: '確定',
+            headerClass: 'p-2 border-bottom-0',
+            footerClass: 'p-2 border-top-0 msgbox-footer',
+            centered: true
+          })
         }
       } catch (error) {
         this.$bvModal.msgBoxOk(error.message, {
@@ -119,7 +128,7 @@ export default {
           okVariant: 'danger',
           okTitle: '確定',
           headerClass: 'p-2 border-bottom-0',
-          footerClass: 'p-2 border-top-0',
+          footerClass: 'p-2 border-top-0 msgbox-footer',
           centered: true
         })
         this.status = 'failed'
@@ -143,6 +152,7 @@ export default {
 }
 
 .fill-form {
+  margin-top: 1rem;
   @media screen and (min-width: map-get($grid-breakpoints, sm)){
     margin-bottom: 4rem;
   }
