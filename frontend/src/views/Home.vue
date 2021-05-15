@@ -4,7 +4,7 @@
       <b-col class="center">
         <b-img :src="require('../assets/images/MUILab-logo.jpg')" height="250" width="250" />
         <h3>MUILab 實聯制門禁登記</h3>
-        <h3 :class="{ 'text-danger': count > 5, 'text-success': count <= 5 }">當前人數：{{ count }}</h3>
+        <h3 :class="{ 'text-danger': count > 10, 'text-warning': count > 5, 'text-success': count <= 5 }">當前人數：{{ count }}</h3>
       </b-col>
     </b-row>
     <b-row>
