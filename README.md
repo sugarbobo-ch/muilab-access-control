@@ -34,7 +34,7 @@
     yarn start //server
     ```
     要注意開發時前端是使用`.env.development`當作環境變數，如果想了解更多Vue CLI是如何使用環境變數可以參考 [Modes and Environment Variables](https://cli.vuejs.org/guide/mode-and-env.html#modes-and-environment-variables) 
-7. 正式部屬時，我們是將前端的頁面打包成一個dist資料夾放在frontend/dist裡面，讓後端去「相對路徑」抓取網站資料，所以請不要輕易更改資料夾的路徑，或是您可以至`server/src/lib/app.js`做更改
+7. 正式部屬時，我們是將前端的頁面打包成一個dist資料夾放在`frontend/dist`裡面，讓後端去「相對路徑」抓取網站資料，所以請不要輕易更改資料夾的路徑，或是您可以至`server/src/lib/app.js`做更改
     正式部屬時，先至frontend資料夾下指令：
     ```sh
     yarn build //frontend
@@ -44,4 +44,4 @@
     yarn start //server
     ```
 9. 完成後請確認網路request呼叫的api路徑是否設置正確，並檢查server的防火牆是否有允許通過
-    
+10. 別忘了把文字內容以及圖片 `frontend/src/assets/images/MUILab-logo.jpg` 改成自己的圖片喔
