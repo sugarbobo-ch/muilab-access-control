@@ -43,17 +43,17 @@ const setCurrentCount = async (req, res, next) => {
       })
     } catch (error) {
       console.error(error)
-      res.status(500).send({
+      res.status(200).send({
         code: 500,
         type: 'error',
         message: error
       })
     }
   } else {
-    res.status(500).send({
+    res.status(200).send({
       code: 500,
       type: 'error',
-      message: '參數設定錯誤，需要有門的Id以及人數'
+      message: '參數設定錯誤，請確認有管制門ID以及人數參數有填入'
     })
   }
 }
@@ -72,7 +72,10 @@ const addLog = async (req, res, next) => {
       })
       await log.save()
       const countResult = await Count.findOne({ doorId: 'muilab-715' })
-      const count = action === 'in'? countResult.count + 1 : countResult.count - 1
+      let count = action === 'in'? countResult.count + 1 : countResult.count - 1
+      if(count <= 0){
+        count = 0
+      }
       const updateObj = {
         doorId,
         count,
@@ -89,14 +92,14 @@ const addLog = async (req, res, next) => {
       })
     } catch (error) {
       console.error(error)
-      res.status(500).send({
+      res.status(200).send({
         code: 500,
         type: 'error',
         message: error
       })
     }
   } else {
-    res.status(500).send({
+    res.status(200).send({
       code: 500,
       type: 'error',
       message: '參數設定錯誤，請確認門、姓名、電話、動作等參數有填入'
