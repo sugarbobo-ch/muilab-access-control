@@ -1,0 +1,101 @@
+// Bootstrap
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+
+// Animations
+@import './animations.scss';
+
+* {
+  font-family: 'Noto Sans TC', '微軟正黑體', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI','Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  &:focus {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+h1, h2 {
+  font-weight: 900;
+}
+
+a {
+  color: $secondary;
+}
+
+.focus {
+  box-shadow: none !important;
+}
+
+#app {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  max-width: 100%;
+  min-height: 100%;
+  touch-action: manipulation;
+  display: flex;
+  flex-direction: column;
+}
+
+#wrapper {
+  padding-top: 4rem;
+  @media screen and (max-width: map-get($grid-breakpoints, sm)){
+    padding-top: 0;
+  }
+  min-height: calc(100vh - 285px);
+}
+
+.wrapper {
+  padding-top: 1rem;
+}
+
+#brand {
+  font-size : 1.5rem;
+  color: grey
+}
+
+input {
+  border: 1px solid $primary !important;
+
+  &:-webkit-autofill { 
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+}
+
+.active .ProseMirror {
+  min-height: 16rem !important;
+}
+
+.static-link {
+  text-decoration: underline;
+  color: $primary;
+}
+
+.msgbox-footer {
+  display: grid;
+  justify-content: center;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+  grid-auto-columns: minmax(6rem, auto);
+  border: none;
+}
+
+.text {
+  &-sm {
+    font-size: 0.875rem;
+  }
+}
+
+.modal-footer-confirm {
+  display: grid;
+  justify-content: center;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+  grid-auto-columns: minmax(6rem, auto);
+  border: none;
+}
