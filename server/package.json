@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "SYNC API server",
+  "description": "Access Control API server",
   "main": "index.js",
   "author": "Jin An",
   "license": "MIT",
